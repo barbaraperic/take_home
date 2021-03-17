@@ -1,17 +1,21 @@
-.layout {
-  width: 80%;
-  margin: 0 auto;
+body{
+  background:#222;
+  box-sizing:border-box;
+  color:#fff;
+  font-family: 'Cabin', sans-serif;
+  font-size:16px;
+  text-align:center;
 }
 
-h1{
-  margin: 1em 0;
-  border-bottom: 1px dashed;
-  padding-bottom: 1em;
-  font-weight: lighter;
+.container{
+  max-width:720px;
+  width:95%;
+  margin: 0 auto;
+  h1{
+    font-size:2.5em;
+  }
 }
-p{
-  font-style: italic;
-}
+
 .loader{
   margin: 0 0 2em;
   height: 100px;
@@ -23,10 +27,35 @@ p{
   vertical-align: top;
 }
 
-/*
-  Set the color of the icon
-*/
-svg path,
-svg rect{
-  fill: #FF6700;
+.ball {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background-color: white;
 }
+
+
+#sunGlobe{
+  transform-origin: 50% 50%;
+  animation: spin 20s linear infinite;
+  width: 80px;
+}
+
+@keyframes spin {
+	100% {
+		-webkit-transform: rotate(360deg);
+    -moz-transform:rotate(360deg);
+		transform: rotate(360deg);
+    fill: yellow;
+	}
+}
+
+
+#grade {
+  animation: spin 20s linear infinite;
+  // color: yellow;
+  svg {
+    fill: yellow;
+  }
+}
+
