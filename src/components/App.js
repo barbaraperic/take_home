@@ -1,60 +1,56 @@
-import React, { useEffect } from 'react';
-//import Loader from "./Loader"
-import { TimelineMax, Bounce } from "gsap";
+import React, { useState } from 'react';
+import Form from "./Form"
+import sunIcon from "../icons/sun.svg"
 import "./styling.scss"
 
-//process.env.REACT_APP_API_KEY
+//
 
 const App = () => {
+  // const [ city, setCity ] = useState("")
+  // const [ temperature, setTemperature ] = useState("")
+  // const [ description, setDescription ] = useState("")
+  // const [ icon, setIcon ] = useState("")
 
+  const [ weatherData, setWeatherData ] = useState({})
 
-  useEffect(() => {
+ const handleClick = () => {
+   console.log("my current location")
+ }
 
-    let tl = new TimelineMax()
-    
-    tl.staggerFrom(".ball", 1, {
-      y: -300, 
-      ease: Bounce.easeOut
-    }, 0.05)
+ const handleSubmit = (e) => {
+  e.preventDefault()
+  const city = "Zagreb"
+  fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_API_KEY}&units=metric`)
+  .then(res => res.json())
+  .then(data => {
+    console.log(data)
+    setWeatherData(state => ({
+      ...state,
+      city: data.name,
+      temperature: data.main.temp,
+      description: data.weather[0].description,
+      icon: data.weather[0].icon,
+    }))
+  })
 
-    tl.add('rotate')
+}
 
-    tl.staggerFrom(".ball", 2, {
-      rotation: 90, 
-      ease: Bounce.easeIn
-    }, 0.05, 'rotate')
-
-    tl.staggerFrom(".ball", 1, {
-      rotation: 180, 
-      ease: Bounce.easeOut
-    }, 0.05, 'rotate += 1.75')
-
-
-
-    tl.from(".newBall", 2, {
-      rotation: 90, 
-      ease: Bounce.easeIn
-    }, 'rotate')
-
-    tl.from(".newBall", 1, {
-      rotation: 180, 
-      ease: Bounce.easeOut
-    }, 'rotate += 1.75')
-
-
-  }, []);
+console.log(weatherData)
+const { city, temperature, description, icon } = weatherData
+let iconurl = "http://openweathermap.org/img/w/" + icon + ".png";
 
   return (
-    <div >
-      <h2>What is the weather outside</h2>
-      {/* <img src={sunIcon} alt="sun" id="sunGlobe"/> */}
-      {/* <img src={grade} alt="grade" id="grade"/> */}
-      <div className="container">
-        <div className="newBall"></div>
-        <div className="ball"></div>
-        <div className="ball"></div>
-        <div className="ball"></div>
-        <div className="ball"></div>
+    <div className="layout-weather">
+      <h1>What is the weather outside</h1>
+      <div className="container-form">
+        <button onClick={handleClick}>My current location</button>
+        <Form handleSubmit={handleSubmit}/>
+      </div>
+      <div className="container-weather">
+        <h2>{city}</h2>
+        <p>{temperature}</p>
+        <p>{description}</p>
+        {icon && <img src={iconurl} alt="icon"/>}
       </div>
     </div>
   );
