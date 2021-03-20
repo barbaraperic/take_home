@@ -1,10 +1,12 @@
-body{
+body, html {
   background:#222;
   box-sizing:border-box;
   color:#fff;
   font-family: 'Roboto', sans-serif;
   font-size:16px;
   text-align:center;
+  font-family: 'Josefin Sans', sans-serif;
+
 }
 
 .layout-weather {
@@ -15,7 +17,7 @@ body{
   h1 {
     margin-bottom: 2rem;
   }
-  
+
   .container-weather {
     width: 60%;
     margin: 0 auto;
@@ -23,10 +25,75 @@ body{
   }
 
   .container-form {
-    display: flex;
-    justify-content: space-evenly;
+    .btn-current-location {
+      margin-bottom: 2rem;
+      padding: 0.5rem 2rem;
+      background: #FF579F;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  }
+
+  form {
+    input {
+      padding: 0.5rem;
+      border-radius: 8px;
+    }
+
+    button {
+      padding: 5px 12px 1px 12px;
+      background: #FF579F;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      position: relative;
+      top: 7px;
+
+      img {
+        width: 20px;
+        filter: invert(1);
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+        background-color: #DD9BB2;
+      }
+    }
   }
 }
+
+.menu {
+  float: right;
+  margin-top: 140px;
+}
+
+#itemsContainer, .line-draw, .big-circle, #x-replace {
+  visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  perspective: 1000;
+  z-index: 1;
+}
+
+#menu1, #menu2, #menu3 {
+  -webkit-backface-visibility: hidden;
+  perspective: 1000;
+  z-index: 1;
+  cursor: pointer;
+}
+
+#trigger {
+  cursor: pointer;
+}
+
+@-moz-document url-prefix() { 
+  #item2 {
+     margin-left: 20px;
+  }
+}
+
 
 
 // .container{

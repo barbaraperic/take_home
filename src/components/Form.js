@@ -1,16 +1,18 @@
-import React, {useState} from 'react'
+import React from 'react'
+import search from "../icons/search.svg"
 
-const Form = ({ handleSubmit }) => {
-  const [ location, setLocation ] = useState("")
+const Form = ({ handleSubmit, onChange, value }) => {
 
   return (
     <form onSubmit={handleSubmit}>
         <input 
-          onChange={(e) => setLocation(e.target.value)}
-          value={location}
+          onChange={onChange}
+          value={value}
           placeholder="Search location"
         />
-        <button type="submit">Search</button>
+        <button type="submit" disabled={value ? false : true} loading="lazy">
+          <img src={search} alt="search"/>
+        </button>
     </form>
   )
 }

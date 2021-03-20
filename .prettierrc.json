@@ -1,3 +1,7 @@
-Ignore artifacts:
-build
-coverage
+{
+  // "printWidth": 100,
+  "trailingComma": "all",
+  "tabWidth": 2,
+  "sem": true,
+  "singleQuote": true
+}
