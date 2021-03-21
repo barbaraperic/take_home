@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Form from './Form';
 import Loader from "./Loader"
+import Search from "./Search"
 
 import './styling.scss';
 
