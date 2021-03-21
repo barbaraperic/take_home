@@ -37,32 +37,37 @@ body, html {
   }
 
   form {
-    input {
-      padding: 0.5rem;
-      border-radius: 8px;
-    }
-
-    button {
-      padding: 5px 12px 1px 12px;
-      background: #FF579F;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      position: relative;
-      top: 7px;
-
-      img {
-        width: 20px;
-        filter: invert(1);
-      }
-
-      &:disabled {
-        cursor: not-allowed;
-        background-color: #DD9BB2;
-      }
-    }
+    display: flex;
+    justify-content: center;
   }
+
+  // form {
+  //   input {
+  //     padding: 0.5rem;
+  //     border-radius: 8px;
+  //   }
+
+  //   button {
+  //     padding: 5px 12px 1px 12px;
+  //     background: #FF579F;
+  //     color: white;
+  //     border: none;
+  //     border-radius: 8px;
+  //     cursor: pointer;
+  //     position: relative;
+  //     top: 7px;
+
+  //     img {
+  //       width: 20px;
+  //       filter: invert(1);
+  //     }
+
+  //     &:disabled {
+  //       cursor: not-allowed;
+  //       background-color: #DD9BB2;
+  //     }
+  //   }
+  // }
 }
 
 .menu {

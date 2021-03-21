@@ -4,7 +4,7 @@ const Form = ({ handleSubmit, onChange, value }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-         <div className="search">
+    <div className="search">
       <input type="text" placeholder=" " onChange={onChange}
           value={value}/>
         <div>

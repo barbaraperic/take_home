@@ -3,6 +3,7 @@ $color: #fff;
 .search {
   display: table;
   input {
+      font-family: 'Josefin Sans', sans-serif;
       background: none;
       border: none;
       outline: none;
@@ -15,7 +16,7 @@ $color: #fff;
       margin: 5px 0;
       font-size: 14px;
       -webkit-appearance: none;
-      font-family: 'Mukta Malar';
+      //font-family: 'Mukta Malar';
       transition: all .6s ease;
       cursor: pointer;
       color: $color;
@@ -75,21 +76,21 @@ html {
 }
 
 // Center & dribbble
-body {
-  min-height: 100vh;
-  font-family: 'Mukta Malar', Arial;
-  background: #F3628D;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .dribbble {
-      position: fixed;
-      display: block;
-      right: 24px;
-      bottom: 24px;
-      img {
-          display: block;
-          width: 76px;
-      }
-  }
-}
+// body {
+//   min-height: 100vh;
+//   font-family: 'Mukta Malar', Arial;
+//   background: #F3628D;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   .dribbble {
+//       position: fixed;
+//       display: block;
+//       right: 24px;
+//       bottom: 24px;
+//       img {
+//           display: block;
+//           width: 76px;
+//       }
+//   }
+// }
