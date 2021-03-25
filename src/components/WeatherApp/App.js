@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import Form from './Form';
-import Loader from "./Loader"
-import Search from "./Search"
+import Loader from './Loader';
 
-import './styling.scss';
+import './styles.scss';
 
 const App = () => {
   const [weatherData, setWeatherData] = useState({
@@ -12,9 +11,9 @@ const App = () => {
     description: null,
     icon: null,
     error: null,
-    loading: false
+    loading: false,
   });
-  const [location, setLocation] = useState("");
+  const [location, setLocation] = useState('');
 
   const handleClick = () => {
     console.log('my current location');
@@ -41,34 +40,40 @@ const App = () => {
           description: data.weather[0].description,
           icon: data.weather[0].icon,
           error: null,
-          loading: false
+          loading: false,
         }));
       })
       .catch(({ message }) => {
         setWeatherData({
           error: message,
-          loading: false
-        })
-    })
+          loading: false,
+        });
+      });
   };
 
   const { city, temperature, description, icon, loading, error } = weatherData;
   let iconUrl = 'http://openweathermap.org/img/w/' + icon + '.png';
 
   if (loading) {
-    return <Loader />
+    return <Loader />;
   }
 
   if (error) {
-    return <p>{error}</p>
+    return <p>{error}</p>;
   }
 
   return (
     <div className="layout-weather">
       <h1>What is the weather outside</h1>
       <div className="container-form">
-        <button className="btn-current-location" onClick={handleClick}>My current location</button>
-        <Form onChange={(e) => setLocation(e.target.value)} value={location} handleSubmit={handleSubmit} />
+        <button className="btn-current-location" onClick={handleClick}>
+          My current location
+        </button>
+        <Form
+          onChange={(e) => setLocation(e.target.value)}
+          value={location}
+          handleSubmit={handleSubmit}
+        />
       </div>
       <div className="container-weather">
         <h2>{city}</h2>
