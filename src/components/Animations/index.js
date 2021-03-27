@@ -12,10 +12,12 @@ const AnimationApp = () => {
       }}
     >
       <Parallax
-        data={{
-          'data-center-center': 'opacity: 1;',
-          'data-bottom-top': 'opacity: 0;',
-        }}
+        data={
+          {
+            // 'data-center-center': 'opacity: 1;',
+            // 'data-bottom-top': 'opacity: 0;',
+          }
+        }
       >
         <TunaFalling />
       </Parallax>
