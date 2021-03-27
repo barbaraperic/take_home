@@ -1,6 +1,41 @@
 import React from 'react';
+import { Waypoint } from 'react-waypoint';
 
 import './_tuna_falling.scss';
+
+// $(window).load(function() {
+//   //Start up the skrollr object
+// 	skrollr.init({
+//     //keeps the bottom from being long
+// 		forceHeight: false
+// 	});
+
+//   // The rest of this controls switching Alice's moods using jQuery Waypoints
+
+//   // How to guess which frame is "being read".
+//   var beingRead = function() {
+//     // It would be approximately centered, of equal distance from top as from bottom.
+//     var $screenHeight = $.waypoints('viewportHeight');
+//     var $pageHeight = $(".page").height();
+//     var offset = ($pageHeight - $screenHeight) / 2 * -1;
+
+//     return offset;
+//   }
+
+//   $(".page").waypoint(function(direction) {
+//     var mood = $(this).data("mood");
+//     $("body").removeClass().addClass(mood);
+//     if (direction === "up") { // if scrolling up
+//       $(this).addClass("in-view").removeClass("scrolled-past")
+//       .waypoint('next').removeClass("in-view");
+//     } else { // else, assuming we're not scrolling at all or are scrolling down
+//       $(this).addClass("in-view").removeClass("scrolled-past")
+//       .waypoint('prev').removeClass("in-view").addClass("scrolled-past");
+//     }
+//   }, {
+//     offset: beingRead()
+//   });
+// });
 
 const TunaFalling = () => {
   return (
@@ -13,7 +48,7 @@ const TunaFalling = () => {
       {/* <!-- Now make Tuna "fall" from the bottom. See if you can expose him as the Cheshire cat he is!--> */}
       <div
         className="tuna-falling"
-        data-0="bottom:-20%"
+        data-0="bottom:-10%"
         data-6124="bottom:120%"
       >
         <img
@@ -46,6 +81,7 @@ const TunaFalling = () => {
               plenty of time to look about her on the way down.
             </p>
           </div>
+
           <div
             className="page page_falling falling_curious"
             data-mood="curious"
@@ -55,6 +91,14 @@ const TunaFalling = () => {
               adjusted, she could make out what seemed to be cupboards,
               bookshelves, paintings, lining the walls she was rushing past.{' '}
             </p>
+            <Waypoint
+              onEnter={(e) =>
+                e.event.target.activeElement.classList.add('curious')
+              }
+              onLeave={(e) =>
+                e.event.target.activeElement.classList.remove('curious')
+              }
+            />
           </div>
           <div className="page page_falling falling_bored" data-mood="bored">
             <p>
@@ -62,6 +106,14 @@ const TunaFalling = () => {
               began to wonder how many miles she’d fallen and whether she’d end
               up at the center of the Earth&mdash;or come out the other side!
             </p>
+            <Waypoint
+              onEnter={(e) =>
+                e.event.target.activeElement.classList.add('bored')
+              }
+              onLeave={(e) =>
+                e.event.target.activeElement.classList.remove('bored')
+              }
+            />
           </div>
           <div
             className="page page_falling falling_sleeping"
@@ -72,6 +124,14 @@ const TunaFalling = () => {
               language? What if they couldn’t understand her and put her in an
               orphanage? She’d never see her sister or her cat again!
             </p>
+            <Waypoint
+              onEnter={(e) =>
+                e.event.target.activeElement.classList.add('sleeping')
+              }
+              onLeave={(e) =>
+                e.event.target.activeElement.classList.remove('sleeping')
+              }
+            />
           </div>
           <div className="page page_falling falling_waking" data-mood="waking">
             <p>
@@ -79,6 +139,14 @@ const TunaFalling = () => {
               his kibble? If only Tuna were with her now. There were no mice to
               live on in the air, but perhaps he could catch a bat.{' '}
             </p>
+            <Waypoint
+              onEnter={(e) =>
+                e.event.target.activeElement.classList.add('waking')
+              }
+              onLeave={(e) =>
+                e.event.target.activeElement.classList.remove('waking')
+              }
+            />
           </div>
 
           {/* <!-- Wait 3 seconds or so for the video to end. Then return to the scene --> */}
